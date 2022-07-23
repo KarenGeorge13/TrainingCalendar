@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Регистрация {% endblock %}
+{% block content %}
+	<div class="container-sm" style="width: 38rem;">
+		<form action="{% url 'authen' %}" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			{% if messages %}
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+			{% endif %}
+			<button class="btn btn-primary" type="submit">Вход</button>
+		</form>
+	</div>
+{% endblock %}
